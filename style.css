@@ -36,6 +36,10 @@ body {
   border-radius: 5px;
 }
 
+#task-list li span{
+  cursor: pointer;
+}
+
 /* Dark theme styles */
 body.dark-theme {
   background-color: #333;
