@@ -25,3 +25,16 @@ function createButton(text, className) {
     btn.className = className;
     return btn;
 }
+
+taskList.addEventListener('click', (event) => {
+    console.log('Elemento clicado:', event.target);
+    if(event.target.classList.contains('delete-btn')) {
+        deleteTask(event.target.parentElement);
+    }
+})
+
+function deleteTask(taskItem) {
+    if(confirm('¿Estás segur@ de que quieres eliminar esta tarea?')) {
+        taskItem.remove();
+    }
+}
