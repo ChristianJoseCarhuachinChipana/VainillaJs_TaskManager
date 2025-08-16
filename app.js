@@ -30,11 +30,21 @@ taskList.addEventListener('click', (event) => {
     console.log('Elemento clicado:', event.target);
     if(event.target.classList.contains('delete-btn')) {
         deleteTask(event.target.parentElement);
+    } else if(event.target.classList.contains('edit-btn')) {
+        editTask(event.target.parentElement);
     }
 })
 
 function deleteTask(taskItem) {
     if(confirm('¿Estás segur@ de que quieres eliminar esta tarea?')) {
         taskItem.remove();
+    }
+}
+
+function editTask(taskItem) {
+    const taskText = taskItem.firstChild.textContent;
+    const newTask = prompt('Edita la tarea:', taskText);
+    if(newTask && newTask.trim() !== '') {
+        taskItem.firstChild.textContent = newTask;
     }
 }
