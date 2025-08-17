@@ -72,3 +72,16 @@ function updateTaskInLocalStorage() {
     const tasksArray = Array.from(taskItems).map(item => item.firstChild.textContent);
     localStorage.setItem('tasks', JSON.stringify(tasksArray));
 }
+
+const themeToggleButton = document.getElementById('toggle-theme-btn');
+const currentTheme = localStorage.getItem('theme') || 'light';
+
+themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const theme = document.body.classList.contains('dark-theme');
+    localStorage.setItem('theme', theme ? 'dark' : 'light');
+});
+
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+}
